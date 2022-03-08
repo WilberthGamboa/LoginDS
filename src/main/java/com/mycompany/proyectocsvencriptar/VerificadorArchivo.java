@@ -14,15 +14,38 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author wmgc5
  */
-public class UIimportar extends javax.swing.JFrame {
-    private VerificadorArchivo verificarArchivo = new VerificadorArchivo();
-
+public class VerificadorArchivo extends javax.swing.JFrame {
+   // private VerificadorArchivo verificarArchivo = new VerificadorArchivo();
+    private boolean flag;
     /**
      * Creates new form UILogin
      */
-    public UIimportar() {
+    public VerificadorArchivo() {
         initComponents();
     }
+    //METODOS PROPIOS
+   
+
+    
+
+
+
+    public boolean getVerificarExistenciaArchivo(){
+
+        return flag;
+       
+      
+    }
+
+
+    public void setVerificarExistenciaArchivo(boolean flag){
+
+        this.flag=flag;
+        
+    }
+
+
+    //BOTONES 
 
     private void importarUsuariosjButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_importarUsuariosjButton1ActionPerformed
         // TODO add your handling code here:
@@ -34,20 +57,24 @@ public class UIimportar extends javax.swing.JFrame {
         if (seleccionarArchivo.showDialog(this, "ABRIR CSV") == JFileChooser.APPROVE_OPTION) {
             File archivo = seleccionarArchivo.getSelectedFile();
             if (archivo.getName().endsWith("usuarios.txt")) {
-                verificarArchivo.setVerificarExistenciaArchivo(true);
+                setVerificarExistenciaArchivo(true);
                 // JOptionPane.showMessageDialog(null, "Se encontró");
 
             } else {
-                verificarArchivo.setVerificarExistenciaArchivo(false);
+                setVerificarExistenciaArchivo(false);
                 JOptionPane.showMessageDialog(null, "El archivo es incorrecto, el programa se cerrará");
                 System.exit(0);
                 
             }
 
+            
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Archivo no encontrado, el programa no se cerrará");
+            System.exit(0);
         }
 
-        JOptionPane.showMessageDialog(null, "Archivo no encontrado, el programa no se cerrará");
-        System.exit(0);
+       
     }// GEN-LAST:event_importarUsuariosjButton1ActionPerformed
 
     /**
@@ -57,7 +84,7 @@ public class UIimportar extends javax.swing.JFrame {
      */
 
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         importarUsuariosjButton1 = new javax.swing.JButton();
@@ -74,19 +101,19 @@ public class UIimportar extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(165, Short.MAX_VALUE)
-                                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(143, 143, 143)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(165, Short.MAX_VALUE)
+                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(143, 143, 143))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(171, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(171, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

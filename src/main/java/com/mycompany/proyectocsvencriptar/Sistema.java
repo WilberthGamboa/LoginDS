@@ -10,7 +10,7 @@ package com.mycompany.proyectocsvencriptar;
  */
 public class Sistema {
 
-    private VerificadorArchivo verificarArchivo;
+ /*   private VerificadorArchivo verificarArchivo;
 
     public Sistema(){
         this.verificarArchivo= new VerificadorArchivo();
@@ -32,5 +32,6 @@ public class Sistema {
     public void mostrarMenu(){
 
     }
+    */
     
 }
