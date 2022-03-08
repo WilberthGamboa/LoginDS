@@ -37,7 +37,7 @@ public class UIimport extends javax.swing.JFrame {
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos txt", "txt");
         seleccionarArchivo.setFileFilter(filtro);
 
-        if (seleccionarArchivo.showDialog(this, "ABRIR CSV") == JFileChooser.APPROVE_OPTION) {
+        if (seleccionarArchivo.showDialog(this, "ABRIR TXT") == JFileChooser.APPROVE_OPTION) {
             File archivo = seleccionarArchivo.getSelectedFile();
             if (archivo.getName().endsWith("usuarios.txt")) {
                 verificarArchivo.setVerificarExistenciaArchivo(true);
