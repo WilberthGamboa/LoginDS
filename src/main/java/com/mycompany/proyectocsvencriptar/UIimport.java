@@ -4,11 +4,6 @@
  */
 package com.mycompany.proyectocsvencriptar;
 
-import java.io.File;
-
-import javax.swing.JFileChooser;
-
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * 
@@ -16,7 +11,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class UIimport extends javax.swing.JFrame {
     // private UIimport = new UIimport();
-    private VerificadorArchivo verificarArchivo;
+  
     private Sistema sistema = new Sistema();
     // Se debe modificar esto
 
