@@ -16,7 +16,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class UIimport extends javax.swing.JFrame {
     // private UIimport = new UIimport();
-    private VerificadorArchivo verificarArchivo = new VerificadorArchivo();
+    private VerificadorArchivo verificarArchivo;
     private Sistema sistema = new Sistema();
     // Se debe modificar esto
 
@@ -32,36 +32,8 @@ public class UIimport extends javax.swing.JFrame {
 
     private void importarUsuariosjButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_importarUsuariosjButton1ActionPerformed
         // TODO add your handling code here:
-
-        JFileChooser seleccionarArchivo = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos txt", "txt");
-        seleccionarArchivo.setFileFilter(filtro);
-
-        if (seleccionarArchivo.showDialog(this, "ABRIR TXT") == JFileChooser.APPROVE_OPTION) {
-            File archivo = seleccionarArchivo.getSelectedFile();
-            if (archivo.getName().endsWith("usuarios.txt")) {
-                verificarArchivo.setVerificarExistenciaArchivo(true);
-                // ESTA PARTE DE AQUI ESTÁ RARA SE DEBE CAMBIAR, POR QUE ESTAMOS USANDO LA
-                // VARIABLE SISTEMA
-
-                // JOptionPane.showMessageDialog(null, "Se encontró");
-
-            } else {
-                verificarArchivo.setVerificarExistenciaArchivo(false);
-
-            }
-
-        } else {
-            verificarArchivo.setVerificarExistenciaArchivo(false);
-            /*
-             * JOptionPane.showMessageDialog(null,
-             * "Archivo no encontrado, el programa no se cerrará");
-             * System.exit(0);
-             */
-        }
-
         sistema.verificarArchivoUsuario();
-
+       
     }// GEN-LAST:event_importarUsuariosjButton1ActionPerformed
 
     /**

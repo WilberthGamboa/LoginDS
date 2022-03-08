@@ -13,16 +13,17 @@ import javax.swing.JOptionPane;
 public class Sistema {
     
 
-    private VerificadorArchivo verificarArchivo;
+    private VerificadorArchivo verificarArchivo= new VerificadorArchivo();
 
     public Sistema() {
-        this.verificarArchivo = new VerificadorArchivo();
+        
     }
 
     public void verificarArchivoUsuario() {
+        verificarArchivo.setVerificarExistenciaArchivo();
         if (verificarArchivo.getVerificarExistenciaArchivo()) {
             
-            
+        
         }else{
             JOptionPane.showMessageDialog(null, "Archivo no encontrado, el programa se cerrará");
                 System.exit(0);
