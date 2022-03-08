@@ -11,16 +11,18 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
+ *  
  * @author wmgc5
  */
-public class VerificadorArchivo extends javax.swing.JFrame {
-   // private VerificadorArchivo verificarArchivo = new VerificadorArchivo();
-    private boolean flag;
+public class UIimport extends javax.swing.JFrame {
+   // private UIimport     = new UIimport();
+   private VerificadorArchivo verificarArchivo= new VerificadorArchivo() ;
+   //Se debe modificar esto
+   
     /**
      * Creates new form UILogin
      */
-    public VerificadorArchivo() {
+    public UIimport() {
         initComponents();
     }
     //METODOS PROPIOS
@@ -30,19 +32,7 @@ public class VerificadorArchivo extends javax.swing.JFrame {
 
 
 
-    public boolean getVerificarExistenciaArchivo(){
-
-        return flag;
-       
-      
-    }
-
-
-    public void setVerificarExistenciaArchivo(boolean flag){
-
-        this.flag=flag;
-        
-    }
+    
 
 
     //BOTONES 
@@ -57,11 +47,16 @@ public class VerificadorArchivo extends javax.swing.JFrame {
         if (seleccionarArchivo.showDialog(this, "ABRIR CSV") == JFileChooser.APPROVE_OPTION) {
             File archivo = seleccionarArchivo.getSelectedFile();
             if (archivo.getName().endsWith("usuarios.txt")) {
-                setVerificarExistenciaArchivo(true);
+                verificarArchivo.setVerificarExistenciaArchivo(true);
+                // ESTA PARTE DE AQUI ESTÁ RARA SE DEBE CAMBIAR, POR QUE ESTAMOS USANDO LA VARIABLE SISTEMA 
+
+               
+
+
                 // JOptionPane.showMessageDialog(null, "Se encontró");
 
             } else {
-                setVerificarExistenciaArchivo(false);
+                verificarArchivo. setVerificarExistenciaArchivo(false);
                 JOptionPane.showMessageDialog(null, "El archivo es incorrecto, el programa se cerrará");
                 System.exit(0);
                 

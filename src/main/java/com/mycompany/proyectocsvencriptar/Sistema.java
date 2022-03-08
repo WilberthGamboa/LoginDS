@@ -9,29 +9,38 @@ package com.mycompany.proyectocsvencriptar;
  * @author wmgc5
  */
 public class Sistema {
-
- /*   private VerificadorArchivo verificarArchivo;
-
-    public Sistema(){
-        this.verificarArchivo= new VerificadorArchivo();
-    }
-    public void verificarArchivoUsuario(){
-
-        
-
-    }
-
-    public void mostrarInterfazUsuario(){
-
-    }
-
-    public void ingresarUsuarioContra(){
-
-    }
-
-    public void mostrarMenu(){
-
-    }
-    */
     
+
+    private VerificadorArchivo verificarArchivo;
+
+    public Sistema() {
+        this.verificarArchivo = new VerificadorArchivo();
+    }
+
+    public void verificarArchivoUsuario() {
+        if (verificarArchivo.getVerificarExistenciaArchivo()) {
+            
+            
+        }
+
+    }
+    public void ingresarUsuarioContra(javax.swing.JTextField userjTextField1, javax.swing.JPasswordField passwordjPasswordField1) {
+        String user;
+       
+        user=userjTextField1.getText();
+        String pass = new String(passwordjPasswordField1.getPassword());
+        System.out.println(user+" "+pass);
+
+    }
+
+    public void mostrarInterfazUsuario() {
+
+    }
+
+   
+
+    public void mostrarMenu() {
+
+    }
+
 }
