@@ -10,18 +10,17 @@ package com.mycompany.proyectocsvencriptar;
  * @author wmgc5
  */
 public class UIimport extends javax.swing.JFrame {
-    // private UIimport = new UIimport();
+
   
     private Sistema sistema = new Sistema();
-    // Se debe modificar esto
-
-    /**
-     * Creates new form UILogin
-     */
+    
     public UIimport() {
         initComponents();
+         
     }
     // METODOS PROPIOS
+
+
 
     // BOTONES
 

@@ -13,13 +13,22 @@ import javax.swing.JOptionPane;
 public class Sistema {
     
 
-    private VerificadorArchivo verificarArchivo= new VerificadorArchivo();
+   
 
+    private VerificadorArchivo verificarArchivo;
+    
+    
     public Sistema() {
+        this.verificarArchivo= new VerificadorArchivo();
+       
+        
+
+    
         
     }
 
     public void verificarArchivoUsuario() {
+    
         verificarArchivo.setVerificarExistenciaArchivo();
         if (verificarArchivo.getVerificarExistenciaArchivo()) {
             
@@ -47,6 +56,23 @@ public class Sistema {
 
     public void mostrarMenu() {
 
+    }
+
+    private void ejecutarInstrucciones(){
+
+        UIimport vista = new UIimport();
+        vista.setVisible(true);
+
+
+    }
+
+    public static void main(String[] args) {
+        /*
+        UIimport vista = new UIimport();
+        vista.setVisible(true);
+       */
+        Sistema sistema = new Sistema();
+        sistema.ejecutarInstrucciones();
     }
 
 }
