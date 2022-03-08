@@ -7,35 +7,28 @@ package com.mycompany.proyectocsvencriptar;
 import java.io.File;
 
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
+
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *  
+ * 
  * @author wmgc5
  */
 public class UIimport extends javax.swing.JFrame {
-   // private UIimport     = new UIimport();
-   private VerificadorArchivo verificarArchivo= new VerificadorArchivo() ;
-   //Se debe modificar esto
-   
+    // private UIimport = new UIimport();
+    private VerificadorArchivo verificarArchivo = new VerificadorArchivo();
+    private Sistema sistema = new Sistema();
+    // Se debe modificar esto
+
     /**
      * Creates new form UILogin
      */
     public UIimport() {
         initComponents();
     }
-    //METODOS PROPIOS
-   
+    // METODOS PROPIOS
 
-    
-
-
-
-    
-
-
-    //BOTONES 
+    // BOTONES
 
     private void importarUsuariosjButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_importarUsuariosjButton1ActionPerformed
         // TODO add your handling code here:
@@ -48,28 +41,27 @@ public class UIimport extends javax.swing.JFrame {
             File archivo = seleccionarArchivo.getSelectedFile();
             if (archivo.getName().endsWith("usuarios.txt")) {
                 verificarArchivo.setVerificarExistenciaArchivo(true);
-                // ESTA PARTE DE AQUI ESTÁ RARA SE DEBE CAMBIAR, POR QUE ESTAMOS USANDO LA VARIABLE SISTEMA 
-
-               
-
+                // ESTA PARTE DE AQUI ESTÁ RARA SE DEBE CAMBIAR, POR QUE ESTAMOS USANDO LA
+                // VARIABLE SISTEMA
 
                 // JOptionPane.showMessageDialog(null, "Se encontró");
 
             } else {
-                verificarArchivo. setVerificarExistenciaArchivo(false);
-                JOptionPane.showMessageDialog(null, "El archivo es incorrecto, el programa se cerrará");
-                System.exit(0);
-                
+                verificarArchivo.setVerificarExistenciaArchivo(false);
+
             }
 
-            
-
-        }else{
-            JOptionPane.showMessageDialog(null, "Archivo no encontrado, el programa no se cerrará");
-            System.exit(0);
+        } else {
+            verificarArchivo.setVerificarExistenciaArchivo(false);
+            /*
+             * JOptionPane.showMessageDialog(null,
+             * "Archivo no encontrado, el programa no se cerrará");
+             * System.exit(0);
+             */
         }
 
-       
+        sistema.verificarArchivoUsuario();
+
     }// GEN-LAST:event_importarUsuariosjButton1ActionPerformed
 
     /**
@@ -79,7 +71,8 @@ public class UIimport extends javax.swing.JFrame {
      */
 
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         importarUsuariosjButton1 = new javax.swing.JButton();
@@ -96,19 +89,19 @@ public class UIimport extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(165, Short.MAX_VALUE)
-                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(143, 143, 143))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(165, Short.MAX_VALUE)
+                                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(143, 143, 143)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(149, 149, 149)
+                                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(171, Short.MAX_VALUE)));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

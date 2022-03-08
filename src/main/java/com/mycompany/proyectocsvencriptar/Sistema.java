@@ -4,6 +4,8 @@
  */
 package com.mycompany.proyectocsvencriptar;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author wmgc5
@@ -21,14 +23,17 @@ public class Sistema {
         if (verificarArchivo.getVerificarExistenciaArchivo()) {
             
             
+        }else{
+            JOptionPane.showMessageDialog(null, "Archivo no encontrado, el programa se cerrará");
+                System.exit(0);
         }
 
     }
     public void ingresarUsuarioContra(javax.swing.JTextField userjTextField1, javax.swing.JPasswordField passwordjPasswordField1) {
         String user;
-       
-        user=userjTextField1.getText();
         String pass = new String(passwordjPasswordField1.getPassword());
+        user=userjTextField1.getText();
+        
         System.out.println(user+" "+pass);
 
     }
