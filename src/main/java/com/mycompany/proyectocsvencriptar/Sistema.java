@@ -26,9 +26,12 @@ public class Sistema extends javax.swing.JFrame {
 
         verificarArchivo.setVerificarExistenciaArchivo();
         if (verificarArchivo.getVerificarExistenciaArchivo()) {
-            JOptionPane.showMessageDialog(null, "Archivo ENCONTRADO, el programa se cerrará");
-            setVisible(false);
-            mostrarMenu();
+            JOptionPane.showMessageDialog(null, "Archivo ENCONTRADO");
+            if (verificarArchivo.validarEstructuraArchivo()) {
+                setVisible(false);
+                mostrarMenu();
+            }
+            System.exit(0);
         } else {
             JOptionPane.showMessageDialog(null, "Archivo no encontrado, el programa se cerrará");
             System.exit(0);
