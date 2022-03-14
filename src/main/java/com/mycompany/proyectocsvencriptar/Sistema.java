@@ -119,8 +119,10 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JButton importarUsuariosjButton1;
     // End of variables declaration//GEN-END:variables
 
+    /*
     public static void main(String[] args) {
         Sistema vista = new Sistema();
         vista.setVisible(true);
     }
+    */
 }

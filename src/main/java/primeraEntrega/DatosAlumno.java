@@ -13,13 +13,17 @@ public class DatosAlumno {
 
 
 
-
+    public DatosAlumno(){
+        this.asignatura= "Diseño de Software"; 
+        
+    }
     
     public DatosAlumno(String matricula, String primerApellido, String segundoApellido, String nombres) {
         this.matricula = matricula;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
         this.nombres = nombres;
+        this.asignatura= "Diseño de Software";
     }
     public String getMatricula() {
         return matricula;
