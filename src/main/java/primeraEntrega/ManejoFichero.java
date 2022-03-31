@@ -48,7 +48,7 @@ public class ManejoFichero {
     }
 
 
-    public void inicio(javax.swing.JTextField matriculajTextField1, javax.swing.JTextField apellidoPjTextField1, javax.swing.JTextField apellidoMjTextField1, javax.swing.JTextField nombresjTextField){
+    public void inicio(javax.swing.JTextField matriculajTextField1, javax.swing.JTextField apellidoPjTextField1, javax.swing.JTextField apellidoMjTextField1, javax.swing.JTextField nombresjTextField,javax.swing.JTextField materiajTextField){
        
         matriculajTextField1.setText(listaAlumnos.get(navegador).getMatricula());
         
@@ -57,16 +57,21 @@ public class ManejoFichero {
         apellidoMjTextField1.setText(listaAlumnos.get(navegador).getSegundoApellido());
         
         nombresjTextField.setText(listaAlumnos.get(navegador).getNombres());
+
+        materiajTextField.setText(listaAlumnos.get(navegador).getAsignatura());
         
  
         
     }
 
     public void atras(){
+        System.out.println(navegador);
         if(navegador==-1){
             navegador=0;
+        }else{
+            navegador=navegador-1;
         }
-        navegador=navegador-1;
+        
        
 
         
@@ -74,10 +79,14 @@ public class ManejoFichero {
     }
 
     public void delante(){
+        System.out.println(listaAlumnos.size());
+        System.out.println(navegador);
         if(navegador>listaAlumnos.size()){
-            navegador=listaAlumnos.size();
+            navegador=listaAlumnos.size()-1;
+        }else{
+            navegador=navegador+1;
         }
-        navegador=navegador+1;
+       
        
 
       

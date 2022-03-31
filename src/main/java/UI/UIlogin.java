@@ -2,7 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.proyectocsvencriptar;
+package UI;
+
+import Utils.AdministradorUsuarios;
+import java.io.File;
+import java.util.LinkedList;
 
 /**
  *
@@ -10,27 +14,48 @@ package com.mycompany.proyectocsvencriptar;
  */
 public class UIlogin extends javax.swing.JFrame {
 
-    private Sistema sistema = new Sistema();
+
+   
+
+
+    //
+
+    private AdministradorUsuarios administradorUsuarios;
+   
     
-    /**
-     * Creates new form UIlogin
-     */
-    public UIlogin() {
+
+    public UIlogin(File archivo) {
+        administradorUsuarios=new AdministradorUsuarios(archivo);
+        administradorUsuarios.crearUsuarios();
         initComponents();
+
+        
     }
 
 
 
 
-    //METODOS JFRAME
+    //BOTON JFRAME
 
 
     private void ingresarjButton1ActionPerformed(java.awt.event.ActionEvent evt,javax.swing.JPasswordField passwordjPasswordField1,
-     javax.swing.JTextField userjTextField1) {//GEN-FIRST:event_ingresarjButton1ActionPerformed
-        // TODO add your handling code here:
-        sistema.ingresarUsuarioContra(userjTextField1, passwordjPasswordField1);
+     javax.swing.JTextField userjTextField1) { 
+         
         
-    }//GEN-LAST:event_ingresarjButton1ActionPerformed
+        String login,contrasenia;
+        login=userjTextField1.getText();
+        contrasenia=new String(passwordjPasswordField1.getPassword());
+
+        boolean bandera=administradorUsuarios.verificarUsuario(login, contrasenia);
+        if (bandera) {
+            UImenu uImenu= new  UImenu();
+            setVisible(false);
+            uImenu.setVisible(true);
+            
+        } 
+   
+
+    }
 
 
     /**

@@ -35,13 +35,13 @@ public class UIOpcionesDocumentos extends javax.swing.JFrame {
     private void atrasjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasjButton1ActionPerformed
         // TODO add your handling code here:
         fichero.atras();
-        fichero.inicio(jTextField1, jTextField2, jTextField3, jTextField4);
+        fichero.inicio(jTextField1, jTextField2, jTextField3, jTextField4,jTextField5);
     }//GEN-LAST:event_atrasjButton1ActionPerformed
 
     private void adelantejButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adelantejButton2ActionPerformed
         // TODO add your handling code here:
         fichero.delante();
-        fichero.inicio(jTextField1, jTextField2, jTextField3, jTextField4);
+        fichero.inicio(jTextField1, jTextField2, jTextField3, jTextField4,jTextField5);
     }//GEN-LAST:event_adelantejButton2ActionPerformed
 
     private void importarjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importarjButton3ActionPerformed
@@ -67,7 +67,7 @@ public class UIOpcionesDocumentos extends javax.swing.JFrame {
                //     MateriajTextField1.setEnabled(true);
                  //  CalificacionjTextField2.setEnabled(true);
   
-                  fichero.inicio(jTextField1, jTextField2, jTextField3, jTextField4);
+                  fichero.inicio(jTextField1, jTextField2, jTextField3, jTextField4,jTextField5);
                     fichero.setImportarConfirmado();
                        
                     JOptionPane.showMessageDialog(null, "Archivo seleccionado de forma correcta");
