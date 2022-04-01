@@ -18,9 +18,9 @@ import javax.crypto.NoSuchPaddingException;
 import javax.swing.JOptionPane;
 
 public class AdministradorUsuarios {
-   
+
     private File archivo;
-  
+
     // private Sistema sistema = new Sistema();
 
     private LinkedList<Usuario> listaUsuarios = new LinkedList<Usuario>();
@@ -60,9 +60,11 @@ public class AdministradorUsuarios {
     }
 
     public boolean verificarUsuario(String login, String contrasenia) {
+
+        int contadorBloqueo = 0;
         boolean bandera = false;
 
-        boolean banderaUsuarioEncontrado=false;
+        boolean banderaUsuarioEncontrado = false;
 
         try {
             final String claveEncriptacion = "secreto!";
@@ -71,30 +73,40 @@ public class AdministradorUsuarios {
             for (int i = 0; i < listaUsuarios.size(); i++) {
 
                 if (login.equals(listaUsuarios.get(i).getUsuario())) {
-                    banderaUsuarioEncontrado=true;
-                    String contraEncriptada = listaUsuarios.get(i).getContrasenia();
-                    String contraDesencriptada = encriptador.desencriptar(contraEncriptada, claveEncriptacion);
+                    banderaUsuarioEncontrado = true;
+                    if (!(isUsuarioBloqueado(listaUsuarios.get(i)))) {
 
-                    if (contrasenia.equals(contraDesencriptada)) {
+                        String contraEncriptada = listaUsuarios.get(i).getContrasenia();
+                        String contraDesencriptada = encriptador.desencriptar(contraEncriptada, claveEncriptacion);
 
-                        JOptionPane.showMessageDialog(null, "ENTRE PAPU :3");
-                        bandera=true;
+                        if (contrasenia.equals(contraDesencriptada)) {
+
+                            JOptionPane.showMessageDialog(null, "ENTRE PAPU :3");
+                            bandera = true;
+
+                        } else {
+                            listaUsuarios.get(i).setIntentos(listaUsuarios.get(i).getIntentos() + 1);
+                            contadorBloqueo = listaUsuarios.get(i).getIntentos();
+
+                            JOptionPane.showMessageDialog(null, "Contraseña incorrecta",
+                                    "ALERTA", JOptionPane.ERROR_MESSAGE);
+
+                        }
 
                     } else {
-
-                        JOptionPane.showMessageDialog(null, "Contraseña incorrecta",
-                                "ALERTA", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "TU USUARIO ESTÁ BLOQUEADO",
+                                    "ALERTA", JOptionPane.ERROR_MESSAGE);
 
                     }
 
-                } 
+                }
 
             }
 
             if (!banderaUsuarioEncontrado) {
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado",
-                            "ALERTA", JOptionPane.ERROR_MESSAGE);
-                
+                        "ALERTA", JOptionPane.ERROR_MESSAGE);
+
             }
 
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException
@@ -105,51 +117,15 @@ public class AdministradorUsuarios {
         return bandera;
     }
 
-    public void ingresarUsuarioContra(javax.swing.JTextField userjTextField1,
-            javax.swing.JPasswordField passwordjPasswordField1) {
+    private boolean isUsuarioBloqueado(Usuario e) {
+        boolean bandera = false;
 
-     //   contrasenia = new String(passwordjPasswordField1.getPassword());
-       // usuario = userjTextField1.getText();
+        if (e.getIntentos() == 3) {
+            bandera = true;
+        }
 
-        // sistema.verificarUsuario(user, pass);
+        return bandera;
 
     }
-    /*
-     * public void administradorUsuarios(LinkedList<Usuario> listaUsuarios) {
-     * 
-     * System.out.println(listaUsuarios.size());
-     * for (int i = 0; i < listaUsuarios.size(); i++) {
-     * if (this.usuario == listaUsuarios.get(i).getUsuario()
-     * && this.contrasenia == listaUsuarios.get(i).getContrasenia()) {
-     * 
-     * JOptionPane.showMessageDialog(null, "Usuario encontrado");
-     * 
-     * } else {
-     * 
-     * }
-     * 
-     * }
-     * contador++;
-     * JOptionPane.showMessageDialog(null, "ERROR, inteto: " + contador);
-     * if (contador == 3) {
-     * JOptionPane.showMessageDialog(null,
-     * "3 INTENTOS FALLIDOS EL PROGRAMA SE CERRARÁ");
-     * System.exit(0);
-     * }
-     * 
-     * }
-     * 
-     */
-    /*
-     * public void crearListaUsuarios(String[] arreglo) {
-     * 
-     * AdministradorUsuarios nuevoUsuario = new AdministradorUsuarios();
-     * nuevoUsuario.setUsuarios(arreglo[0]);
-     * nuevoUsuario.setContrasenia(arreglo[1]);
-     * this.listaUsuarios.add(nuevoUsuario);
-     * 
-     * 
-     * }
-     */
 
 }
