@@ -50,7 +50,7 @@ public class Usuario {
             }
         };
 
-        timer.schedule(tarea, 10000);
+        timer.schedule(tarea, 20000);
 
     }
 

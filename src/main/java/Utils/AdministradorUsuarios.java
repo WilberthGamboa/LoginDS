@@ -1,10 +1,8 @@
 package Utils;
 
 import Entities.Usuario;
-import com.mycompany.proyectocsvencriptar.EncriptadoAES;
+
 import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -112,7 +110,7 @@ public class AdministradorUsuarios {
 
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException
                 | IllegalBlockSizeException | BadPaddingException ex) {
-            Logger.getLogger(EncriptadoAES.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
 
         return bandera;

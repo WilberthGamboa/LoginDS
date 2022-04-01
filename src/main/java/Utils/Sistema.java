@@ -30,24 +30,6 @@ public class Sistema {
         }
 
     }
-    /*
-    public UIImportar getUiImportar() {
-        return uiImportar;
-    }
-
-    public void setUiImportar(UIImportar uiImportar) {
-        this.uiImportar = uiImportar;
-    }
-
-    // CLASE UILOGIN
-
-    public static void main(String[] args) {
-        Sistema sistema = new Sistema();
-
-        sistema.getUiImportar().setVisible(true);
-
-    }
-
-    */
+    
 
 }
