@@ -30,13 +30,12 @@ public class VerificadorArchivo {
                 String arreglo[] = linea.split(" ");
                 columnas = arreglo.length;
 
-
                 if (columnas != 2) {
                     JOptionPane.showMessageDialog(null, "Estructura incorrecta, el programa finalizará",
                             "ALERTA", JOptionPane.ERROR_MESSAGE);
                     System.exit(0);
 
-                } 
+                }
 
             }
 
@@ -45,7 +44,7 @@ public class VerificadorArchivo {
             e.printStackTrace();
 
         }
-        
+
         JOptionPane.showMessageDialog(null, "Estructura Correcta");
 
     }

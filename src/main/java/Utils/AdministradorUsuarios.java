@@ -20,14 +20,12 @@ import javax.swing.JOptionPane;
 public class AdministradorUsuarios {
 
     private File archivo;
-
-    // private Sistema sistema = new Sistema();
-
-    private LinkedList<Usuario> listaUsuarios = new LinkedList<Usuario>();
+    private LinkedList<Usuario> listaUsuarios;
+    
 
     public AdministradorUsuarios(File archivo) {
         this.archivo = archivo;
-
+        this.listaUsuarios = new LinkedList<Usuario>();
     }
 
     public void crearUsuarios() {
@@ -81,15 +79,15 @@ public class AdministradorUsuarios {
 
                         if (contrasenia.equals(contraDesencriptada)) {
 
-                            JOptionPane.showMessageDialog(null, "ENTRE PAPU :3");
+                            JOptionPane.showMessageDialog(null, "Bienvenido");
                             bandera = true;
 
                         } else {
                             listaUsuarios.get(i).setIntentos(listaUsuarios.get(i).getIntentos() + 1);
                             contadorBloqueo = listaUsuarios.get(i).getIntentos();
-                            if (contadorBloqueo==3) {
-                                listaUsuarios.get(i).iniciarBloque();
-                                
+                            if (contadorBloqueo == 3) {
+                                listaUsuarios.get(i).iniciarBloqueo();
+
                             }
                             JOptionPane.showMessageDialog(null, "Contraseña incorrecta",
                                     "ALERTA", JOptionPane.ERROR_MESSAGE);
@@ -98,14 +96,11 @@ public class AdministradorUsuarios {
 
                     } else {
                         JOptionPane.showMessageDialog(null, "TU USUARIO ESTÁ BLOQUEADO",
-                                    "ALERTA", JOptionPane.ERROR_MESSAGE);
+                                "ALERTA", JOptionPane.ERROR_MESSAGE);
 
                     }
 
                 }
-
-
-                
 
             }
 

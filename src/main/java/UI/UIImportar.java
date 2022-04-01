@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI;
-import UI.UIlogin;
 import Utils.Sistema;
 import Utils.VerificadorArchivo;
 import java.io.File;
@@ -16,23 +15,23 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author wmgc5
  */
 public class UIImportar extends javax.swing.JFrame {
-
+    private Sistema sistema;
+    private VerificadorArchivo verificadorArchivo;
     public UIImportar() {
+
+        this.sistema= new Sistema();
+        this.verificadorArchivo= new VerificadorArchivo();
         initComponents();
 
-    }
-    // METODOS PROPIOS
-
-    public void activarLoginDesactivarImportar(){
-      
+        
 
     }
-
+    
     // BOTONES
 
     private void importarUsuariosjButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_importarUsuariosjButton1ActionPerformed
         // Variable para distintas alertas sistema
-        Sistema sistema = new Sistema();
+        
         // bandera
         boolean bandera = false;
 
@@ -50,7 +49,7 @@ public class UIImportar extends javax.swing.JFrame {
                 bandera = true;
 
                 sistema.verificarArchivoUsuario(bandera, "Archivo seleccionado con exito");
-                VerificadorArchivo verificadorArchivo = new VerificadorArchivo();
+                
 
                 verificadorArchivo.validarEstructuraArchivo(archivo);
                 bandera = true;

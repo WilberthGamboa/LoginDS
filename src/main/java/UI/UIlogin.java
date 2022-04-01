@@ -6,7 +6,7 @@ package UI;
 
 import Utils.AdministradorUsuarios;
 import java.io.File;
-import java.util.LinkedList;
+
 
 /**
  *
@@ -36,8 +36,6 @@ public class UIlogin extends javax.swing.JFrame {
         contrasenia = new String(passwordjPasswordField1.getPassword());
 
         boolean bandera = administradorUsuarios.verificarUsuario(login, contrasenia);
-
-        
 
         if (bandera) {
             UImenu uImenu = new UImenu();
