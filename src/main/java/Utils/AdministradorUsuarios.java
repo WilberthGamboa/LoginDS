@@ -87,7 +87,10 @@ public class AdministradorUsuarios {
                         } else {
                             listaUsuarios.get(i).setIntentos(listaUsuarios.get(i).getIntentos() + 1);
                             contadorBloqueo = listaUsuarios.get(i).getIntentos();
-
+                            if (contadorBloqueo==3) {
+                                listaUsuarios.get(i).iniciarBloque();
+                                
+                            }
                             JOptionPane.showMessageDialog(null, "Contraseña incorrecta",
                                     "ALERTA", JOptionPane.ERROR_MESSAGE);
 
@@ -100,6 +103,9 @@ public class AdministradorUsuarios {
                     }
 
                 }
+
+
+                
 
             }
 
