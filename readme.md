@@ -16,3 +16,6 @@
 4. Si se ingresa un usario que no existe el programa avisará
 5. Al ingresar una contraseña incorrecta tres veces en un usuario, dicho usuario se bloqueará por 20 segundos y no podrá acceder al menú incluso ingresando la contraseña correcta.
 6. Una vez ingresando el usuario y la contraseña correcta, el menú se iniciará.
+
+## Diagrama de clases
+[![Class-Diagram0.png](https://i.postimg.cc/zDFNCVD8/Class-Diagram0.png)](https://postimg.cc/grj1dc6T)
