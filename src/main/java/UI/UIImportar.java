@@ -3,12 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI;
+
 import Utils.Sistema;
-import Utils.VerificadorArchivo;
 import java.io.File;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * 
@@ -16,59 +13,23 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class UIImportar extends javax.swing.JFrame {
     private Sistema sistema;
-    private VerificadorArchivo verificadorArchivo;
+
     public UIImportar() {
 
-        this.sistema= new Sistema();
-        this.verificadorArchivo= new VerificadorArchivo();
+        this.sistema = new Sistema();
+
         initComponents();
 
-        
-
     }
-    
+
     // BOTONES
 
     private void importarUsuariosjButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_importarUsuariosjButton1ActionPerformed
-        // Variable para distintas alertas sistema
-        
-        // bandera
-        boolean bandera = false;
-
-        // Codigo para seleccionar un archivo y guardarlo
-        File archivo=null;
-        JFileChooser seleccionarArchivo = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos txt", "txt");
-        seleccionarArchivo.setFileFilter(filtro);
-        int result = seleccionarArchivo.showDialog(new JFrame(), "Abrir txt");
-
-        if (result == JFileChooser.APPROVE_OPTION) {
-            archivo = seleccionarArchivo.getSelectedFile();
-
-            if (archivo.getName().endsWith("usuarios.txt")) {
-                bandera = true;
-
-                sistema.verificarArchivoUsuario(bandera, "Archivo seleccionado con exito");
-                
-
-                verificadorArchivo.validarEstructuraArchivo(archivo);
-                bandera = true;
-
-            } else {
-                sistema.verificarArchivoUsuario(bandera, "El nombre del archivo es incorrecto, el programa finalizará");
-            }
-
-        } else {
-
-            sistema.verificarArchivoUsuario(bandera, "No seleccionaste ningún archivo, el programa finalizará");
-
-        }
-        //Una vez finalizado todo
-       
+        File archivo = sistema.verificarArchivoUsuario();
+        // Una vez finalizado todo
         setVisible(false);
         UIlogin uIlogin = new UIlogin(archivo);
         uIlogin.setVisible(true);
-       
 
     }
 
@@ -82,7 +43,8 @@ public class UIImportar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         importarUsuariosjButton1 = new javax.swing.JButton();
@@ -99,19 +61,19 @@ public class UIImportar extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(145, 145, 145)
+                                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(163, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(166, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(154, 154, 154)
+                                .addComponent(importarUsuariosjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(166, Short.MAX_VALUE)));
 
         pack();
         setLocationRelativeTo(null);
