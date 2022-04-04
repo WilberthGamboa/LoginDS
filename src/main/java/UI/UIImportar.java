@@ -22,14 +22,22 @@ public class UIImportar extends javax.swing.JFrame {
 
     }
 
+    private void iniciarLogin(File archivo){
+        setVisible(false);
+        UIlogin uIlogin = new UIlogin(archivo);
+        uIlogin.setVisible(true);
+
+    }
+
     // BOTONES
 
     private void importarUsuariosjButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_importarUsuariosjButton1ActionPerformed
         File archivo = sistema.verificarArchivoUsuario();
         // Una vez finalizado todo
-        setVisible(false);
-        UIlogin uIlogin = new UIlogin(archivo);
-        uIlogin.setVisible(true);
+        
+        iniciarLogin(archivo);
+
+        
 
     }
 
