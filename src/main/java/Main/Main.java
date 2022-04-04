@@ -1,11 +1,17 @@
 package Main;
 
-import UI.UIImportar;
+import java.io.File;
+
+
+import UI.UIlogin;
+import Utils.Sistema;
 
 public class Main {
     public static void main(String[] args) {
-        UIImportar uiImportar = new UIImportar();
-        uiImportar.setVisible(true);
+        Sistema sistema = new Sistema();
+        File archivo=  sistema.verificarArchivoUsuario();
+        UIlogin uIlogin = new UIlogin(archivo);
+        uIlogin.setVisible(true);
 
     }
     

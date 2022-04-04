@@ -1,6 +1,8 @@
 package Utils;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -13,6 +15,7 @@ public class Sistema {
 
     }
 
+
     // CLASE UIIMPORTAR, MANDA ALERTAS
     public File verificarArchivoUsuario() {
         // Variable para distintas alertas sistema
@@ -20,35 +23,33 @@ public class Sistema {
         // bandera
 
         // Codigo para seleccionar un archivo y guardarlo
-        File archivo = null;
-        JFileChooser seleccionarArchivo = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos txt", "txt");
-        seleccionarArchivo.setFileFilter(filtro);
-        int result = seleccionarArchivo.showDialog(new JFrame(), "Abrir txt");
 
-        if (result == JFileChooser.APPROVE_OPTION) {
-            archivo = seleccionarArchivo.getSelectedFile();
 
-            if (archivo.getName().endsWith("usuarios.txt")) {
-                VerificadorArchivo verificadorArchivo = new VerificadorArchivo();
+        File archivo = new File("usuarios.txt");
+        // Var leer doc
+        FileReader fr = null;
+        BufferedReader br = null;
+        // contador de columnas
+   
+        try {
 
-                JOptionPane.showMessageDialog(null, "Archivo seleccionado con exito");
+            fr = new FileReader(archivo);
+            br = new BufferedReader(fr);
+ 
 
-                verificadorArchivo.validarEstructuraArchivo(archivo);
+            
+            JOptionPane.showMessageDialog(null, "Archivo seleccionado con exito");
+            VerificadorArchivo  verificadorArchivo = new VerificadorArchivo();
+            verificadorArchivo.validarEstructuraArchivo(archivo);
+            
 
-            } else {
-
-                mensajeFinalizarPrograma("El nombre del archivo es incorrecto, el programa finalizará");
-
-            }
-
-        } else {
-            mensajeFinalizarPrograma("No seleccionaste ningún archivo, el programa finalizará");
+        } catch (Exception e) {
+           mensajeFinalizarPrograma("Archivo no existe");
+            e.printStackTrace();
 
         }
-
+        
         return archivo;
-
     }
 
     private void mensajeFinalizarPrograma(String mensaje) {
@@ -57,5 +58,7 @@ public class Sistema {
         System.exit(0);
 
     }
+
+ 
 
 }
